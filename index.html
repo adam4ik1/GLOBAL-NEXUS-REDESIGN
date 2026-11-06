@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eee9df">
+  <meta name="description" content="The Diplomatic Table — an interactive 3D world of international relations and diplomacy.">
+  <title>The Diplomatic Table — Global Affairs 2035</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="masthead">
+      <a class="wordmark" href="#"><span class="seal">DT</span><span><b>THE DIPLOMATIC TABLE</b><small>INSTITUTE FOR GLOBAL AFFAIRS · 2035</small></span></a>
+      <div class="edition"><span class="live-dot"></span> WORLD SYSTEMS OBSERVATORY <i> / </i> VOL. 01</div>
+      <div class="mast-actions"><button id="viewBtn" class="text-button">RESET VIEW ↗</button><button id="themeBtn" class="round-button" aria-label="Toggle lighting">◐</button></div>
+    </header>
+
+    <main class="workspace">
+      <aside class="rail">
+        <div class="rail-label">FIELD GUIDE</div>
+        <button class="rail-item active" data-filter="all"><span>◎</span><small>Overview</small></button>
+        <button class="rail-item" data-filter="governance"><span>⌘</span><small>Governance</small></button>
+        <button class="rail-item" data-filter="security"><span>◇</span><small>Security</small></button>
+        <button class="rail-item" data-filter="economy"><span>↗</span><small>Economy</small></button>
+        <button class="rail-item" data-filter="society"><span>✳</span><small>Society</small></button>
+        <div class="rail-bottom"><span class="rail-index">01—09</span><span class="rail-line"></span><small>EXPLORE</small></div>
+      </aside>
+
+      <section class="stage-column">
+        <div class="intro-row"><div><div class="kicker">A LIVING MODEL OF INTERNATIONAL RELATIONS</div><h1>Where the world<br><em>comes to the table.</em></h1></div><p class="intro-copy">Explore the institutions, negotiations and networks shaping our shared future. Select a landmark to open its diplomatic brief.</p></div>
+        <div class="scene-card">
+          <div class="scene-topline"><span>01 / THE GLOBAL DISTRICT</span><span class="scene-coordinates">GENEVA · 46°12′N 6°09′E</span><span class="scene-status"><i></i> MODEL ACTIVE</span></div>
+          <div id="scene-wrap"><div id="loading"><span class="loader"></span><b>BUILDING THE WORLD MODEL</b></div><div class="map-stamp">GLOBAL<br>COMMONS <span>2035</span></div><div class="scene-caption">DRAG TO ORBIT <b>·</b> SCROLL TO EXPLORE <b>·</b> SELECT A LANDMARK</div></div>
+          <div class="scene-bottom"><span><b>FIG. 01</b> — DIPLOMATIC CAMPUS / INTERACTIVE 3D MODEL</span><span>NOT TO SCALE · EDUCATIONAL SIMULATION</span></div>
+        </div>
+        <div class="bottom-strip"><div><span class="strip-number">193</span><span><b>MEMBER STATES</b><small>IN THE UNITED NATIONS</small></span></div><div><span class="strip-number">09</span><span><b>INSTITUTIONS</b><small>CONNECTED IN THIS MODEL</small></span></div><div><span class="strip-number">05</span><span><b>POLICY DOMAINS</b><small>SHARED GLOBAL PRIORITIES</small></span></div><div class="strip-note">DIPLOMACY IS THE ART OF<br>MAKING COOPERATION POSSIBLE.</div></div>
+      </section>
+
+      <aside class="dossier">
+        <div class="dossier-head"><span class="kicker">INSTITUTIONAL DIRECTORY</span><span class="mono" id="directoryCount">09 ENTRIES</span></div>
+        <div class="directory" id="directory">
+          <button class="directory-item" data-id="0"><span class="entry-no">01</span><span class="entry-copy"><b>Multilateral Forum</b><small>GLOBAL GOVERNANCE</small></span><span class="entry-arrow">↗</span></button>
+          <button class="directory-item" data-id="1"><span class="entry-no">02</span><span class="entry-copy"><b>Embassy Quarter</b><small>BILATERAL RELATIONS</small></span><span class="entry-arrow">↗</span></button>
+          <button class="directory-item" data-id="2"><span class="entry-no">03</span><span class="entry-copy"><b>Peace & Security Council</b><small>CONFLICT PREVENTION</small></span><span class="entry-arrow">↗</span></button>
+          <button class="directory-item" data-id="3"><span class="entry-no">04</span><span class="entry-copy"><b>World Trade House</b><small>ECONOMIC DIPLOMACY</small></span><span class="entry-arrow">↗</span></button>
+          <button class="directory-item" data-id="4"><span class="entry-no">05</span><span class="entry-copy"><b>Climate Assembly</b><small>GLOBAL COMMONS</small></span><span class="entry-arrow">↗</span></button>
+          <button class="directory-item" data-id="5"><span class="entry-no">06</span><span class="entry-copy"><b>International Court</b><small>RULE OF LAW</small></span><span class="entry-arrow">↗</span></button>
+          <button class="directory-item" data-id="6"><span class="entry-no">07</span><span class="entry-copy"><b>Culture Exchange</b><small>PUBLIC DIPLOMACY</small></span><span class="entry-arrow">↗</span></button>
+          <button class="directory-item" data-id="7"><span class="entry-no">08</span><span class="entry-copy"><b>Global Press Centre</b><small>STRATEGIC COMMUNICATION</small></span><span class="entry-arrow">↗</span></button>
+          <button class="directory-item" data-id="8"><span class="entry-no">09</span><span class="entry-copy"><b>Development Bank</b><small>INTERNATIONAL FINANCE</small></span><span class="entry-arrow">↗</span></button>
+        </div>
+        <section class="brief-card" id="briefCard">
+          <div class="brief-top"><span class="kicker">DIPLOMATIC BRIEF</span><span class="brief-number" id="briefNumber">— / 09</span></div>
+          <div id="briefEmpty"><div class="empty-mark">＋</div><h2>Choose a place<br>to begin.</h2><p>Each landmark represents a real field of international cooperation. Select one in the model or directory to read its brief.</p></div>
+          <div id="briefContent" class="hidden"><div class="brief-category" id="briefCategory"></div><h2 id="briefTitle"></h2><p id="briefDescription"></p><div class="brief-rule"></div><div class="brief-detail"><small>MANDATE</small><b id="briefMandate"></b></div><div class="brief-detail"><small>WHY IT MATTERS</small><b id="briefImpact"></b></div><div class="brief-tags" id="briefTags"></div></div>
+        </section>
+        <div class="dossier-foot"><span>CURATED LEARNING ENVIRONMENT</span><span>DT—2035</span></div>
+      </aside>
+    </main>
+    <footer class="footer"><span>THE DIPLOMATIC TABLE <b>© 2035</b></span><span>INTERNATIONAL RELATIONS & DIPLOMACY</span><span>AN INTERACTIVE LEARNING PROJECT</span></footer>
+    <div id="toast" class="toast"></div>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
